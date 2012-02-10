@@ -1318,9 +1318,10 @@ define( [
 							$link.jqmData( "back" ),
 
 				//this may need to be more specific as we use data-rel more
-				role = $link.attr( "data-" + $.mobile.ns + "rel" ) || undefined;
+				role = $link.attr( "data-" + $.mobile.ns + "rel" ) || undefined,
+				shouldReloadPage = path.isExternal(href);
 
-			$.mobile.changePage( href, { transition: transition, reverse: reverse, role: role } );
+			$.mobile.changePage( href, { transition: transition, reverse: reverse, role: role, reloadPage: shouldReloadPage } );
 			event.preventDefault();
 		});
 
